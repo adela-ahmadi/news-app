@@ -3,12 +3,13 @@ import Navbar from "./Components/Navbar";
 import NewsBoard from "./Components/NewsBoard";
 
 const App = () => {
-  const [category, setCategory] = useState("general");
+  const [category, setCategory] = useState("technology");
+
   return (
-    <div>
-      <Navbar setCategory={setCategory} />
+    <>
+      <Navbar category={category} setCategory={setCategory} />
       <NewsBoard category={category} />
-    </div>
+    </>
   );
 };
 

@@ -1,24 +1,27 @@
 import image from "../assets/news.jpg";
+import "../App.css";
 
 const NewsItem = ({ title, description, src, url }) => {
   return (
-    <div
-      className='card bg-dark text-white mb-3 d-inline-block my-3 mx-3 px-2 py-2'
-      style={{ maxWidth: "345px" }}>
-      <img
-        src={src ? src : image}
-        style={{ height: "200px", objectFit: "cover" }}
-        className='card-img-top'
-        alt={title}
-      />
-      <div className='card-body'>
-        <h5 className='card-title'>{title.slice(0, 50)}</h5>
-        <p className='card-text'>
+    <div className='news-card card bg-dark text-light h-100'>
+      <img src={src || image} className='card-img-top' alt={title} />
+
+      <div className='card-body d-flex flex-column'>
+        <h5 className='card-title'>
+          {title ? title.slice(0, 60) : "No title available"}
+        </h5>
+
+        <p className='card-text flex-grow-1'>
           {description
-            ? description.slice(0, 90)
-            : "News is a report of recent events. It is typically made up of a story with a headline, a byline, and a body.  "}
+            ? description.slice(0, 100)
+            : "Latest updates and breaking news from reliable sources."}
         </p>
-        <a href={url} className='btn btn-primary'>
+
+        <a
+          href={url}
+          target='_blank'
+          rel='noopener noreferrer'
+          className='btn btn-danger mt-auto'>
           Read More
         </a>
       </div>
